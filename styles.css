@@ -1,0 +1,206 @@
+:root {
+	color-scheme: light;
+	--forest: #163d35;
+	--forest-deep: #102e28;
+	--orange: #df762f;
+	--paper: #fffefa;
+	--ink-soft: #65736d;
+	--line: rgba(22, 61, 53, 0.13);
+	font-family: 'DM Sans', 'Segoe UI', sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+#map {
+	position: absolute;
+	inset: 0;
+	background: #e5e9df;
+	font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+.map-heading {
+	position: absolute;
+	z-index: 1000;
+	top: 18px;
+	left: 18px;
+	display: flex;
+	align-items: center;
+	gap: 13px;
+	min-width: 286px;
+	padding: 12px 16px 12px 12px;
+	border: 1px solid rgba(255, 255, 255, 0.72);
+	border-radius: 7px;
+	background: rgba(255, 254, 250, 0.96);
+	box-shadow: 0 5px 22px rgba(22, 42, 33, 0.15);
+	pointer-events: none;
+}
+
+.brand-mark {
+	display: grid;
+	flex: 0 0 42px;
+	width: 42px;
+	height: 42px;
+	place-items: center;
+	border-radius: 4px;
+	background: var(--forest);
+	color: #f3d479;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0;
+}
+
+.heading-copy { min-width: 0; }
+
+.eyebrow,
+.heading-subtitle,
+.map-heading h1 { margin: 0; }
+
+.eyebrow {
+	color: #5d766c;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+}
+
+.map-heading h1 {
+	margin-top: 2px;
+	color: var(--forest-deep);
+	font-family: 'Fraunces', Georgia, serif;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.15;
+}
+
+.heading-subtitle {
+	margin-top: 3px;
+	color: var(--ink-soft);
+	font-size: 11px;
+}
+
+.live-indicator {
+	width: 8px;
+	height: 8px;
+	margin-left: auto;
+	border-radius: 50%;
+	background: #7d9d47;
+	box-shadow: 0 0 0 3px rgba(125, 157, 71, 0.15);
+}
+
+.leaflet-container { outline: none; }
+
+.leaflet-top { top: 16px; }
+.leaflet-right { right: 16px; }
+.leaflet-bottom { bottom: 14px; }
+.leaflet-left { left: 16px; }
+
+.leaflet-bar,
+.leaflet-control-layers,
+.leaflet-control-scale-line {
+	border: 1px solid var(--line) !important;
+	border-radius: 5px !important;
+	background: var(--paper) !important;
+	box-shadow: 0 3px 14px rgba(22, 42, 33, 0.14) !important;
+}
+
+.leaflet-bar a,
+.leaflet-bar a:hover {
+	width: 34px;
+	height: 34px;
+	border-bottom-color: var(--line);
+	color: var(--forest);
+	line-height: 34px;
+}
+
+.leaflet-bar a:hover { background: #f1f3e9; }
+.leaflet-bar a:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+.leaflet-control-layers { padding: 5px; color: var(--forest-deep); }
+.leaflet-control-layers-toggle { width: 34px; height: 34px; }
+.leaflet-control-layers-expanded { padding: 10px 12px; }
+.leaflet-control-layers label { margin: 4px 0; font-size: 12px; }
+.leaflet-control-layers-separator { border-top-color: var(--line); }
+
+.leaflet-draw-toolbar a {
+	background-color: var(--paper);
+}
+
+.leaflet-draw-actions a {
+	border-color: rgba(22, 61, 53, 0.1);
+	background: var(--forest);
+	color: white;
+	font-family: 'DM Sans', 'Segoe UI', sans-serif;
+	font-size: 11px;
+}
+
+.leaflet-draw-actions a:hover { background: var(--forest-deep); }
+
+.coordinate-readout {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 32px;
+	padding: 6px 9px;
+	border: 1px solid var(--line);
+	border-radius: 5px;
+	background: rgba(255, 254, 250, 0.96);
+	box-shadow: 0 3px 14px rgba(22, 42, 33, 0.14);
+	color: var(--forest-deep);
+	font-family: 'DM Sans', 'Segoe UI', sans-serif;
+	font-size: 10px;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.coordinate-label {
+	color: var(--ink-soft);
+	font-size: 8px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+}
+
+.leaflet-control-scale-line {
+	padding: 2px 5px 1px;
+	color: var(--forest-deep);
+	font-size: 9px;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: var(--paper);
+}
+
+.leaflet-popup-content-wrapper { border-radius: 5px; }
+.leaflet-popup-content { margin: 11px 14px; font-family: 'DM Sans', 'Segoe UI', sans-serif; }
+
+@media (max-width: 600px) {
+	.map-heading {
+		top: 10px;
+		left: 10px;
+		min-width: 0;
+		max-width: calc(100vw - 84px);
+		gap: 9px;
+		padding: 9px 11px 9px 9px;
+	}
+
+	.brand-mark { flex-basis: 36px; width: 36px; height: 36px; font-size: 11px; }
+	.map-heading h1 { font-size: 17px; }
+	.eyebrow { font-size: 8px; }
+	.heading-subtitle { font-size: 10px; }
+	.leaflet-top { top: 10px; }
+	.leaflet-right { right: 10px; }
+	.leaflet-bottom { bottom: 10px; }
+	.leaflet-left { left: 10px; }
+	.coordinate-readout { gap: 6px; padding: 5px 7px; font-size: 9px; }
+	.coordinate-label { display: none; }
+}
